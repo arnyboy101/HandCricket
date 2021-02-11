@@ -14,17 +14,20 @@ public class HandCricket
         user_win = false;
     }
 
+
+
     public void toss() throws IOException
     {
-        double toss = Math.random();
-
-        System.out.println("Enter H for heads and T for tails");
+        System.out.println("Odd or Even?");
+        System.out.println("Enter O for Odd, Enter E for Even");
         String ch = br.readLine();
-
-        String result = (toss>0.5)? "H":"T";
-        String tossr = (result.compareTo("H")==0)? "Heads": "Tails";
-        System.out.println("The toss is "+tossr);
-        if (result.compareTo(ch)==0)
+        System.out.println("Enter a number from 0 to 6");
+        int run = Integer.parseInt(br.readLine());
+        double CPUh = Math.random() * 6;
+        int CPUhand = (int) CPUh;
+        System.out.println("CPU has chosen "+CPUhand);
+        int sum = run + CPUhand;
+        if ((ch.compareTo("O")==0 && sum%2!=0) || (ch.compareTo("E")==0 && sum%2==0))
         {
              System.out.println("You have won the toss. Enter 1 to bat, enter 2 to bowl");
              int choice = Integer.parseInt(br.readLine());
